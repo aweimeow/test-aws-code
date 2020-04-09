@@ -1,0 +1,22 @@
+version: 0.2
+
+phases:
+  install:
+    commands:
+      - echo Entered the install phase...
+    runtime-versions:
+      python: 3.7
+  build:
+    commands:
+      - python test.py
+  post_build:
+    commands:
+      - echo "Build completed on `date`"
+
+artifacts:
+  secondary-artifacts:
+    artifact1:
+      files:
+        - '**/*'
+      base-directory: public
+      discard-paths: no
